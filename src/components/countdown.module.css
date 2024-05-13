@@ -2,7 +2,7 @@
     font-size: 28px;
     color: #e1e1e1;
     font-weight: 700;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
   
   .container {
@@ -14,7 +14,10 @@
   .containerContent {
     margin: 0 auto;
     width: 1280px;
-    padding: 15px 32px;
+    padding-top: 15px ;
+    padding-bottom: 20px;
+    padding-right: 32px;
+    padding-left: 32px;
   }
   
   .text {

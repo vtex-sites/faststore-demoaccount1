@@ -36,7 +36,6 @@ function Countdown(props: CountdownProps) {
     <div className={styles.container}>
       <div className={styles.containerContent}>
         <h1 className={styles.title}>{ props.title }</h1>
-        <h2>This is live</h2>
         <div>
           <span className={styles.text} suppressHydrationWarning>
             {timeLeft.days} days, {timeLeft.hours} hours, {timeLeft.minutes} minutes, and {timeLeft.seconds} seconds left
