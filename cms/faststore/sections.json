@@ -20,5 +20,60 @@
           }
         }
       }
+    },
+    {
+      "name": "TopCategories",
+      "schema": {
+        "title": "Top Categories",
+        "description": "A list of top categories",
+        "type": "object",
+        "required": [
+          "title"
+        ],
+        "properties": {
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "CategoriesOffers",
+      "schema": {
+        "title": "Categories Offers",
+        "description": "A list of categories offers",
+        "type": "object"
+      }
+    },
+    {
+      "name": "BannerImages",
+      "schema": {
+        "title": "Banner with Images",
+        "description": "A Banner with Images",
+        "type": "object",
+        "properties": {
+          "link": {
+            "title": "Link",
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "BrandsLine",
+      "schema": {
+        "title": "Brands Line",
+        "description": "A list of brands",
+        "type": "object"
+      }
+    },
+    {
+      "name": "FeaturedLighthing",
+      "schema": {
+        "title": "Featured Lighthing",
+        "description": "A list of Featured Lighthing",
+        "type": "object"
+      }
     }
   ]
