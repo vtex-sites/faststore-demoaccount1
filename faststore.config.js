@@ -2,7 +2,7 @@
 module.exports = {
   seo: {
   "title": "Lamps Plus",
-  "description": "An store framework",
+  "description": "Lamps Plus",
   "titleTemplate": "%s |  Lamps Plus",
   "author": "Lamps Plus"
 },
