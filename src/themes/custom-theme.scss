@@ -119,6 +119,8 @@
 
     --fs-grid-max-width: 1280px;
 
+    --fs-text-size-title-product:1.9rem;
+
     [data-fs-button]{
       --fs-button-primary-text-color: white;
       --fs-button-primary-text-color-hover: white;
@@ -283,6 +285,11 @@
     }
 
     /*NAV BAR*/
+    [data-fs-navbar]{
+      --fs-navbar-box-shadow: none;
+
+      border-bottom: 1px solid #ccc;
+    }
     [data-fs-navbar-row]{
       max-width: calc(100% - 60px);
       grid-template-columns: 1fr minmax(auto, 37.5rem) 0.2fr;
@@ -475,30 +482,46 @@
       --fs-product-card-title-color:var(--fs-color-main-3);
       --fs-product-card-price-color:var(--fs-color-main-3);
 
-      [data-fs-product-card-image]{
-        height: 180px;
-        width: 180px;
-      }
+      // [data-fs-product-card-image]{
+      //   height: 180px;
+      //   width: 180px;
+      // }
       
+    }
+    .section-product-tiles{
+     
+      [data-fs-product-card]{
+        --fs-product-card-min-width: 180px;
+        --fs-product-card-image-aspect-ratio: 1;
+      }
+      [data-fs-product-card-image]{
+        --fs-product-card-image-aspect-ratio: 1!important;
+        border-radius: 5px;
+      }
     }
     /*SECTION PRODUCT TILES*/
     .section-product-tiles{
       background-color: #f1f1f1;
       padding: 40px 20px 60px;
       max-width: 1280px;
-      margin: 0 auto;
+      margin: 2rem auto 0;
 
       .text__title-section{
         font-weight: 400;
         font-size: 1.3rem;
         letter-spacing: -0.5px;
       }
-      [data-fs-tiles] li{
-        grid-column: auto;
-      }
-      [data-fs-tiles] [data-fs-tile] > *{
-        grid-auto-rows: auto;
-      }
+      [data-fs-tiles]{
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 600px;
+
+        li{
+          grid-column: auto;
+        }
+        [data-fs-tile] > *{
+          grid-auto-rows: auto;
+        }
+      } 
     }
     // --------------------------------------------------------
      // --------------------------------------------------------
@@ -586,9 +609,177 @@
     /* FOOTER */
     .section-footer{
       margin: 0;
+
+      [data-fs-incentives]{
+        display: none;
+      }
     }
     [data-fs-footer-navigation]{
-      border: none;
+      padding-top: 30px;
+      &::before{
+        display: none;
+      }
+    }
+    [data-fs-footer-info]{
+      display: block;
+
+      [data-fs-link]{
+        display: none;
+      }
+      [data-fs-footer-copyright]{
+        grid-column: none;
+        text-align: center;
+      }
+
+      &::before{
+        display: none;
+      }
+    }
+    /* Product List Page */
+    /* BREADCRUMB */
+    [data-fs-breadcrumb]{
+      --fs-breadcrumb-list-item-last-text-color:#000;
+      --fs-breadcrumb-list-item-padding: 0;
+      --fs-breadcrumb-padding: 18px 0;
+
+      font-size: 0.85rem;
+      font-weight: 400;
+      [data-fs-breadcrumb-divider]{
+        border:none;
+        &::before{
+          content:'/';
+        }
+      }
+    }
+    /* FILTERS */
+    [data-fs-filter]{
+      --fs-filter-accordion-border-width-notebook: none;
+      [data-fs-filter-list-item-label]{
+        font-size: .9rem;
+      }
+      [data-fs-filter-title]{
+        color:#333;
+        font-size: 0.9rem;
+      }
+      [data-fs-accordion-item]{
+        margin-bottom: 5px;
+      }
+    } 
+    [data-fs-filter-accordion]{
+      [data-fs-button]{
+        background-color: #000;
+
+        [data-fs-button-wrapper]{
+          color: white;
+          font-size: 0.9rem;
+          line-height: 1rem;
+          font-weight: 600;
+          text-transform: initial;
+
+          [data-fs-button-icon]{
+            [data-fs-icon]{
+              display: none;
+            }
+
+            &::before{
+              content:"";
+              display: block;
+              border-bottom: 2px solid #fff;
+              border-right: 2px solid #fff;
+              display: inline-block;
+              height: 6px;
+              transition: border-color .1s ease 200ms;
+              width: 6px;
+              transform: rotate(45deg);
+              box-sizing: content-box;
+              position: relative;
+              top: -3px;
+            }
+          }
+        }
+      }
+      [data-fs-accordion-panel]{
+        padding-top: 13px;
+      }
+    }
+    [data-fs-price]{
+      --fs-price-listing-color: #333;
+    }
+    /* PRODUCT LIST */
+    [data-fs-product-listing]{
+      [data-fs-select-field] [data-fs-select-field-label],
+      [data-fs-product-listing-results-count]{
+        color: #333;
+        font-size: 0.9rem;
+      }
+      [data-fs-select] select{
+        font-size: 0.9rem;
+        color: black;
+        border: 1px solid black;
+      }
+    } 
+    .section-scroll-to-top-button{
+      display: none;
+    }
+    [data-fs-product-listing-search-term]{
+      font-size: 1.6rem
+    }
+    /* PRODUCT SHELF MODULE */
+    .section-product-shelf{
+      margin: 0;
+
+      .text__title-section{
+        font-size: 1.3rem;
+        font-weight: 400 ;
+        letter-spacing: -0.4px;
+      }
+    } 
+    /* PRODUCT DETAIL PAGE */
+    [data-fs-product-details]{
+      --fs-product-details-section-border-width: 0;
+      [data-fs-product-details-gallery][data-fs-image-gallery=without-selector]{
+        grid-column: span 6;
+      }
+      [data-fs-product-details-info],
+      [data-fs-product-details-title]{
+        grid-column: 8/span 11;
+      }
+      [data-fs-product-title] [data-fs-product-title-header] > *{
+        --fs-product-title-line-height:2.3rem;
+      }
+      [data-fs-product-price] [data-fs-price-variant=spot]{
+        font-size: 2.25rem;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+      }
+      [data-fs-product-details-section]{
+        [data-fs-button-wrapper]{
+          font-size: 18px;
+          font-weight: 400;
+
+          [data-fs-button-icon]{
+            display: none;
+          }
+        }
+      }
+      [data-fs-product-description]{
+        font-weight: 500;
+        text-transform: initial;
+        letter-spacing: -0.04em;
+
+        [data-fs-product-details-description-content]{
+          font-weight: 300;
+        }
+      }
+
+      [data-fs-accordion-button]{
+        [data-fs-button-wrapper]{
+          font-size: 1.28rem;
+          font-weight: normal;
+          letter-spacing: -0.04em;
+          text-transform: initial;
+        }
+      }
     }
     // --------------------------------------------------------
     // Spacing (UI Essentials)
