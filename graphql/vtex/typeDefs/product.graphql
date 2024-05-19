@@ -1,0 +1,6 @@
+extend type StoreProduct {
+  """
+  Retrieve the product seller name.
+  """
+  customData: String!
+}

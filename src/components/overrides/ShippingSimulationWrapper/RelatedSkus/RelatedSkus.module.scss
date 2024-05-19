@@ -1,0 +1,78 @@
+.RelatedSkus {
+    
+    [data-fs-button-variant="primary"] {
+        [data-fs-button-wrapper] {
+            --fs-button-primary-text-color: var(--fs-color-main-4);
+            --fs-button-primary-text-color-hover: var(--fs-color-accent-0);
+            --fs-button-primary-text-color-active: var(--fs-color-main-4);
+            --fs-button-primary-bkg-color: transparent;
+            --fs-button-primary-bkg-color-hover: transparent;
+            --fs-button-primary-bkg-color-active: transparent;
+            --fs-button-text-weight: (--fs-text-weight-light);
+            --fs-button-padding: 0;
+            text-decoration: underline;
+            text-transform: none;
+        }
+    }
+
+    [data-fs-related-products-wrapper] {
+        border: 2px solid red;
+        position: absolute;
+        top: 20%;
+        left: 25%;
+
+        [data-fs-modal-container] {
+            background-color: var(--fs-color-main-5);
+            display: flex;
+            flex-direction: column;
+            padding: 1.875rem;
+            width: 47rem;
+            height: 24rem;
+            position: relative;
+
+            button[aria-label="Close"] {
+                display: flex;
+                flex-direction: row;
+                justify-content: end;
+                align-content: center;
+                position: absolute;
+                top: 1%;
+                right: 0;
+
+                span {
+                    padding-right: .125rem;
+                }
+            }
+
+            [data-fs-modal-header] {
+                display: flex;
+                justify-content: space-between;
+
+                [data-fs-header-title] {
+                    font-size: var(--fs-text-size-3);
+                    font-weight: var(--fs-text-weight-bold);
+                    letter-spacing: -0.0525rem;
+                }
+
+                [data-fs-header-description] {
+                    font-size: var(--fs-text-size-1);
+                }
+            }
+
+            [data-fs-button-variant="primary"] {
+                [data-fs-button-wrapper] {
+                    --fs-button-primary-text-color: var(--fs-color-main-5);
+                    --fs-button-primary-text-color-hover: var(--fs-color-main-5);
+                    --fs-button-primary-text-color-active: var(--fs-color-main-5);
+                    --fs-button-primary-bkg-color: var(--fs-color-accent-2);
+                    --fs-button-primary-bkg-color-hover: var(--fs-color-accent-1);
+                    --fs-button-primary-bkg-color-active: var(--fs-color-main-4);
+                    --fs-button-text-weight: (--fs-text-weight-bold);
+                    --fs-button-padding: 1rem 7.625rem;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
