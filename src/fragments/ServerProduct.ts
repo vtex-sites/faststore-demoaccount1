@@ -5,7 +5,22 @@ export const fragment = gql`
     product(locator: $locator) {
       id: productID
       productStyle
-      relatedSkus
+      relatedSkus {
+        id
+        skuRefId
+        skuId
+        items {
+          relationshipType
+          relatedSkus {
+            relatedSkuRefId
+            relatedSkuId
+            quantity
+            position
+            imageUrl
+            name
+          }
+        }
+      }
     }
   }
 `
