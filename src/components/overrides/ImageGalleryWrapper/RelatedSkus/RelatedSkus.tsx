@@ -27,7 +27,7 @@ const RelatedSkus = () => {
   const popUpRef = useRef<HTMLDivElement | null>(null);
   const [showPopUp, setShowPopUp] = useState<boolean>(false);
   const [inputValues, setInputValues] = useState(
-    Array(relatedSkus.items[0].relatedSkus.length).fill("")
+    relatedSkus.items.map((item: any) => item.relatedSkus[0].quantity)
   );
 
   const handleInputChange = (
@@ -35,19 +35,23 @@ const RelatedSkus = () => {
     event: ChangeEvent<HTMLInputElement>
   ) => {
     const newInputValues = [...inputValues];
-    newInputValues[index] = event.target.value;
+    newInputValues[index] = Number(event.target.value);
     setInputValues(newInputValues);
   };
 
   const handleAddToCart = () => {
-    const baseUrl = 'https://demoaccount1.myvtex.com/checkout/cart/add/'
+    const baseUrl = `https://demoaccount1.myvtex.com/checkout/cart/add/?sku=${id}&qty=1&seller=1&sc=1`
   
-    const params = relatedSkus.items[0].relatedSkus.map((sku: any, index: number) => {
-      const quantity = inputValues[index];
-      return `sku=${sku.relatedSkuId}&qty=${quantity}&seller=1&sc=1&sku=${id}&qty=1&seller=1&sc=1`;
-    }).join('&');
+    const params = relatedSkus.items
+      .map((item: any, index: number) => {
+        const quantity = inputValues[index];
+        return { relatedSkuId: item.relatedSkus[0].relatedSkuId, quantity };
+      })
+      .filter((sku: any) => sku.quantity !== 0)
+      .map((sku: any) => `sku=${sku.relatedSkuId}&qty=${sku.quantity}&seller=1&sc=1`)
+      .join('&');
 
-    const url = `${baseUrl}?${params}`;
+    const url = `${baseUrl}${params ? `&${params}` : ''}`;
     window.location.href = url; // Redirect the user to the generated URL
   };
 
@@ -67,9 +71,7 @@ const RelatedSkus = () => {
 
   useEffect(() => {
     setInputValues(
-      relatedSkus.items[0].relatedSkus.map((sku: { quantity: number }) =>
-        sku.quantity.toString()
-      )
+      relatedSkus.items.map((item: any) => item.relatedSkus[0].quantity)
     );
   }, [relatedSkus]);
 
@@ -109,23 +111,23 @@ const RelatedSkus = () => {
                         </TableRow>
                       </TableHead>
                       <TableBody>
-                        {relatedSkus.items[0].relatedSkus.map(
+                        {relatedSkus.items.map(
                           (sku: any, i: number) => (
-                            <TableRow key={sku.relatedSkuRefId}>
+                            <TableRow key={sku.relatedSkus[0].relatedSkuRefId}>
                               <TableCell>
                                 <img
-                                  src={sku.imageUrl}
-                                  alt={sku.name}
+                                  src={sku.relatedSkus[0].imageUrl}
+                                  alt={sku.relatedSkus[0].name}
                                   width={70}
                                   height={70}
                                 />
-                                <span>{sku.name}</span>
+                                <span>{sku.relatedSkus[0].name}</span>
                               </TableCell>
-                              <TableCell>{sku.relatedSkuRefId}</TableCell>
+                              <TableCell>{sku.relatedSkus[0].relatedSkuRefId}</TableCell>
                               <TableCell>
                                 <Input
                                   type="text"
-                                  value={inputValues[i]}
+                                  value={inputValues[i] == 0 ? '' : inputValues[i]}
                                   onChange={(event) =>
                                     handleInputChange(i, event)
                                   }
@@ -134,7 +136,7 @@ const RelatedSkus = () => {
                               <TableCell>
                                 <Price
                                   formatter={useFormattedPrice}
-                                  value={6.99}
+                                  value={i == 0 ? 6.99 : 9.99}
                                 />
                               </TableCell>
                             </TableRow>
