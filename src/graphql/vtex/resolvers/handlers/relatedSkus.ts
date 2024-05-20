@@ -14,15 +14,11 @@ type RelatedSku = {
     name: string
 }
 
-const baseUrl = `https://demoaccount4.myvtex.com/_v/related-parts`
+const baseUrl = `https://demoaccount1.myvtex.com/_v/related-parts`
 
 const relatedSkus = async (root: StoreProductRoot) => {
-    // TO DO: update baseUrl with skuid from catalog. Currently no skuiID is return a valid response
-    // We are leaving the 1979 skuId hardcoded to mock data for now
-    // const skuId = root.itemId
-
-    const skuId = 1979
-
+    
+    const skuId = root.itemId
     try {
         const response = await fetch(
             `${baseUrl}/${skuId}`

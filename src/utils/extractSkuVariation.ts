@@ -3,5 +3,5 @@
 export const extractSkuVariation = (url: string) => {
     const regex = /__(.*?)\/p/
     const match = url.match(regex)
-    return match ? match[1] : null
+    return match ? match[1] : ''
 }
