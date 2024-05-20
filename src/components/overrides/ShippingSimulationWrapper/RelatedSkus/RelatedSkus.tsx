@@ -10,8 +10,6 @@ import styles from './RelatedSkus.module.scss'
 
 import { usePDP }  from "@faststore/core"
 
-import part from '../../../assets/images/pdp-related-skus/part.jpg'
-
 const RelatedSkus = () => {
     const here = usePDP()
     console.log('context:', here)
@@ -40,7 +38,7 @@ const RelatedSkus = () => {
             sku: {
               name: "60W Equivalent Torpedo 5.5W LED Dimmable Filament Candelabra by Tesler",
               image: {
-                src: part,
+                src: 'part',
                 alt: "image",
               },
               style: "35x94",
