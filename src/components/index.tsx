@@ -4,6 +4,7 @@ import CategoriesOffers from "./CategoriesOffers";
 import BannerImages from "./BannerImages";
 import BrandsLine from "./BrandsLine";
 import FeaturedLighthing from "./FeaturedLighthing";
+import LandingHero from "./LandingHero";
 
 export default { 
     Countdown, 
@@ -11,5 +12,6 @@ export default {
     CategoriesOffers, 
     BannerImages, 
     BrandsLine, 
-    FeaturedLighthing 
+    FeaturedLighthing,
+    LandingHero
 }
