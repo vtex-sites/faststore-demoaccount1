@@ -1,12 +1,12 @@
 import { SectionOverride } from '@faststore/core/src/typings/overrides'
-import ShippingSimulationWrapper from './ShippingSimulationWrapper/ShippingSimulationWrapper'
+import ImageGalleryWrapper from './ImageGalleryWrapper/ImageGalleryWrapper'
 
 const SECTION = 'ProductDetails' as const
 
 const override: SectionOverride = {
   section: SECTION,
   components: {
-    ShippingSimulation: { Component: ShippingSimulationWrapper }
+    ImageGalleryViewer: { Component: ImageGalleryWrapper },
   }
 }
 
