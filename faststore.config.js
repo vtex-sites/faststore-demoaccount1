@@ -49,8 +49,8 @@ module.exports = {
   storeUrl: "https://lp1.vtexb2c.com/",
   secureSubdomain: "https://secure.lp1.vtexb2c.com/",
   checkoutUrl: "https://secure.lp1.vtexb2c.com/checkout",
-  loginUrl: "https://secure.lp1.vtexb2c.com/app/io/login",
-  accountUrl: "https://secure.lp1.vtexb2c.com/app/io/account",
+  loginUrl: "https://secure.lp1.vtexb2c.com/login",
+  accountUrl: "https://secure.lp1.vtexb2c.com/account",
 
   previewRedirects: {
     home: '/',
