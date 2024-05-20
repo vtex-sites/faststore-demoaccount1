@@ -46,11 +46,11 @@ module.exports = {
   },
 
   // Production URLs
-  storeUrl: "https://demoaccount1.vtex.app",
-  secureSubdomain: "https://demoaccount1.myvtex.com",
-  checkoutUrl: "https://demoaccount1.myvtex.com/checkout",
-  loginUrl: "https://demoaccount1.myvtex.com/login",
-  accountUrl: "https://demoaccount1.myvtex.com/account",
+  storeUrl: "https://lp1.vtexb2c.com/",
+  secureSubdomain: "https://secure.lp1.vtexb2c.com/",
+  checkoutUrl: "https://secure.lp1.vtexb2c.com/checkout",
+  loginUrl: "https://secure.lp1.vtexb2c.com/app/io/login",
+  accountUrl: "https://secure.lp1.vtexb2c.com/app/io/account",
 
   previewRedirects: {
     home: '/',
