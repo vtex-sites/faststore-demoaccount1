@@ -5,6 +5,9 @@ import BannerImages from "./BannerImages";
 import BrandsLine from "./BrandsLine";
 import FeaturedLighthing from "./FeaturedLighthing";
 import LandingHero from "./LandingHero";
+import LandingHeroTwoColumns from "./LandingHeroTwoColumns";
+import MoreToExplore from "./MoreToExplore";
+import GetInspired from "./GetInspired";
 
 export default { 
     Countdown, 
@@ -13,5 +16,8 @@ export default {
     BannerImages, 
     BrandsLine, 
     FeaturedLighthing,
-    LandingHero
+    LandingHero,
+    LandingHeroTwoColumns,
+    MoreToExplore,
+    GetInspired
 }
