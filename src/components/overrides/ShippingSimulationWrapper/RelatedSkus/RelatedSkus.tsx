@@ -1,14 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Icon, Button } from '@faststore/ui'
+import { Icon, Button, Table, TableHead, TableRow, TableCell, TableBody, Price } from '@faststore/ui'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
+import { usePDP }  from "@faststore/core"
 
 import Image from 'next/image'
-
-import { Table, TableHead, TableRow, TableCell, TableBody, Price } from '@faststore/ui'
-
 import styles from './RelatedSkus.module.scss'
 
-import { usePDP }  from "@faststore/core"
 
 const RelatedSkus = () => {
     const here = usePDP()
@@ -47,37 +44,6 @@ const RelatedSkus = () => {
             }
         }
     ]
-
-
-    // const [data, setData] = useState();
-    // const [loading, setLoading] = useState(true);
-    // const [error, setError] = useState();
-  
-    // useEffect(() => {
-    //   // Define la URL a la que quieres hacer la solicitud
-    //   const url = 'https://demoaccount4.myvtex.com/_v/related-parts/1979';
-  
-    //   // Función para hacer la solicitud fetch
-    //   const fetchData = async () => {
-    //     try {
-    //       const response = await fetch(url);
-    //       if (!response.ok) {
-    //         throw new Error('Network response was not ok');
-    //       }
-    //       const result = await response.json();
-    //       setData(result);
-    //     } catch (error) {
-    //       setError(error);
-    //     } finally {
-    //       setLoading(false);
-    //     }
-    //   };
-  
-    //   fetchData();
-    // }, []); // El array vacío asegura que esto se ejecute solo una vez cuando el componente se monte
-  
-    // if (loading) return <p>Loading...</p>;
-    // if (error) return <p>Error: {error.message}</p>;
   
     return (
       <div className={styles.RelatedSkus}>
