@@ -3,13 +3,16 @@ import { Icon, Button, Table, TableHead, TableRow, TableCell, TableBody, Price }
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { usePDP }  from "@faststore/core"
 
-import Image from 'next/image'
 import styles from './RelatedSkus.module.scss'
 
-
 const RelatedSkus = () => {
-    const here = usePDP()
-    console.log('context:', here)
+
+    const columns = ["Part", "Style #", "Quantity", "Unit Price"]
+
+    const { data: { product: {
+        productStyle,
+        relatedSkus
+    }}} = usePDP()
 
     const popUpRef = useRef<HTMLDivElement | null>(null)
     const [showPopUp, setShowPopUp] = useState<boolean>(false)
@@ -27,28 +30,12 @@ const RelatedSkus = () => {
         document.removeEventListener('mousedown', handleOnDismiss)
       }
     }, [])
-
-    const columns = ["Part", "Style #", "Quantity", "Unit Price"]
-
-    const relatedSkus = [
-        {
-            sku: {
-              name: "60W Equivalent Torpedo 5.5W LED Dimmable Filament Candelabra by Tesler",
-              image: {
-                src: 'part',
-                alt: "image",
-              },
-              style: "35x94",
-              quantity: "4",
-              unitPrice: 4,
-            }
-        }
-    ]
   
     return (
       <div className={styles.RelatedSkus}>
         <Button variant="primary" onClick={() => setShowPopUp(!showPopUp)}>
-            Bulbs and Replacement Parts for Style #1G894
+            Bulbs and Replacement Parts
+            {productStyle && <span>for Style #{productStyle.toUpperCase()}</span>}
         </Button>
         <div data-fs-related-products-wrapper>
         {showPopUp && (
@@ -83,23 +70,23 @@ const RelatedSkus = () => {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {relatedSkus.map((item, i) => (
+                            {relatedSkus.items[0].relatedSkus.map((sku: any, i: number) => (
                             <TableRow key={i}>
                                 <TableCell>
-                                <Image 
-                                    src={item.sku.image.src}
-                                    alt={item.sku.image.alt}
+                                <img 
+                                    src={sku.imageUrl}
+                                    alt={sku.name}
                                     width={70}
                                     height={70}
                                 />
                                 <span>
-                                    {item.sku.name}
+                                    {sku.name}
                                 </span>
                                 </TableCell>
-                                <TableCell>{item.sku.style}</TableCell>
-                                <TableCell>{item.sku.quantity}</TableCell>
+                                <TableCell>{`35x${94+i}`}</TableCell>
+                                <TableCell>{sku.quantity}</TableCell>
                                 <TableCell>
-                                <Price formatter={useFormattedPrice} value={item.sku.unitPrice} />
+                                <Price formatter={useFormattedPrice} value={4.99} />
                                 </TableCell>
                             </TableRow>
                             ))}
