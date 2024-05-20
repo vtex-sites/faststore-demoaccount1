@@ -1,13 +1,12 @@
 import React from 'react'
-import { ShippingSimulation } from '@faststore/ui'
-import { ShippingSimulationProps } from '@faststore/ui'
+import { ShippingSimulation, ShippingSimulationProps } from '@faststore/ui'
 import RelatedSkus from './RelatedSkus/RelatedSkus'
 
-const ShippingSimulationWrapper = (props: any) => {
+const ShippingSimulationWrapper = (props: ShippingSimulationProps) => {
 
     return (
         <>
-            <ShippingSimulation props={props} />
+            <ShippingSimulation {...props} /> 
             <RelatedSkus />
         </>
     )
