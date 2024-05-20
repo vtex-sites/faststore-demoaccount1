@@ -1,5 +1,4 @@
 import {
-  productStyle,
   relatedSkus,
 } from './handlers'
 
@@ -9,7 +8,6 @@ const productResolver = {
      * @param ProductStoreRoot
      * @returns
      */
-    productStyle,
     relatedSkus,
   },
 }

@@ -20,7 +20,7 @@ const RelatedSkus = () => {
 
   const {
     data: {
-      product: { productStyle, relatedSkus, id },
+      product: { relatedSkus, id },
     },
   } = usePDP();
 
@@ -77,8 +77,7 @@ const RelatedSkus = () => {
     <>
       {relatedSkus.skuId !== '' && <div className={styles.RelatedSkus}>
         <Button variant="primary" onClick={() => setShowPopUp(!showPopUp)}>
-          Bulbs and Replacement Parts
-          {productStyle && <span> for Style #{productStyle.toUpperCase()}</span>}
+          Bulbs and Replacement Parts for Style #{relatedSkus.skuRefId.toUpperCase()}
         </Button>
         <div data-fs-related-products-wrapper>
           {showPopUp && (
