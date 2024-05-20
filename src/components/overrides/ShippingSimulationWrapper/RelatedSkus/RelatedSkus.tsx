@@ -39,64 +39,67 @@ const RelatedSkus = () => {
         </Button>
         <div data-fs-related-products-wrapper>
         {showPopUp && (
-            <div data-fs-modal-wrapper ref={popUpRef}>
-                <div data-fs-modal-container>
-                    <button
-                        aria-label="Close"
-                        onClick={() => {
-                            setShowPopUp(!showPopUp)
-                        }}
-                    >
-                        <span>CLOSE</span>
-                        <Icon name="X" weight="bold" width={18} height={18} />
-                    </button>
-                    <div data-fs-modal-header>
-                        <p data-fs-header-title>
-                            Parts & Accessories
-                        </p>
-                        <p data-fs-header-description>
-                            Need Help? Call 800-782-1967
-                        </p>
-                    </div>
-                    <div data-fs-modal-description>
-                    <Table>
-                        <TableHead>
-                            <TableRow>
-                                {columns.map((column, index) => (
-                                    <TableCell key={index} scope="col" variant="header">
-                                    {column}
+            <div>
+                <div data-fs-modal-wrapper ref={popUpRef}>
+                    <div data-fs-modal-container>
+                        <button
+                            aria-label="Close"
+                            onClick={() => {
+                                setShowPopUp(!showPopUp)
+                            }}
+                        >
+                            <span>CLOSE</span>
+                            <Icon name="X" weight="bold" width={18} height={18} />
+                        </button>
+                        <div data-fs-modal-header>
+                            <p data-fs-header-title>
+                                Parts & Accessories
+                            </p>
+                            <p data-fs-header-description>
+                                Need Help? Call 800-782-1967
+                            </p>
+                        </div>
+                        <div data-fs-modal-description>
+                        <Table>
+                            <TableHead>
+                                <TableRow>
+                                    {columns.map((column, index) => (
+                                        <TableCell key={index} scope="col" variant="header">
+                                        {column}
+                                        </TableCell>
+                                    ))}
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {relatedSkus.items[0].relatedSkus.map((sku: any, i: number) => (
+                                <TableRow key={i}>
+                                    <TableCell>
+                                    <img 
+                                        src={sku.imageUrl}
+                                        alt={sku.name}
+                                        width={70}
+                                        height={70}
+                                    />
+                                    <span>
+                                        {sku.name}
+                                    </span>
                                     </TableCell>
+                                    <TableCell>{sku.relatedSkuRefId}</TableCell>
+                                    <TableCell>{sku.quantity}</TableCell>
+                                    <TableCell>
+                                    <Price formatter={useFormattedPrice} value={4.99} />
+                                    </TableCell>
+                                </TableRow>
                                 ))}
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {relatedSkus.items[0].relatedSkus.map((sku: any, i: number) => (
-                            <TableRow key={i}>
-                                <TableCell>
-                                <img 
-                                    src={sku.imageUrl}
-                                    alt={sku.name}
-                                    width={70}
-                                    height={70}
-                                />
-                                <span>
-                                    {sku.name}
-                                </span>
-                                </TableCell>
-                                <TableCell>{`35x${94+i}`}</TableCell>
-                                <TableCell>{sku.quantity}</TableCell>
-                                <TableCell>
-                                <Price formatter={useFormattedPrice} value={4.99} />
-                                </TableCell>
-                            </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                    <Button variant="primary" onClick={() => setShowPopUp(!showPopUp)}>
-                        ADD TO CART
-                    </Button>
+                            </TableBody>
+                        </Table>
+                        <Button variant="primary" onClick={() => setShowPopUp(!showPopUp)}>
+                            ADD TO CART
+                        </Button>
+                        </div>
                     </div>
                 </div>
+                <div data-fs-modal-overlay data-fs-modal-open={showPopUp ? true : false}></div>
             </div>
         )}
         </div>

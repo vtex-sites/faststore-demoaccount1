@@ -25,9 +25,10 @@
             display: flex;
             flex-direction: column;
             padding: 1.875rem;
-            width: 47rem;
+            width: 55rem;
             height: auto;
             position: relative;
+            z-index: 100;
 
             button[aria-label="Close"] {
                 display: flex;
@@ -61,30 +62,50 @@
             }
 
             [data-fs-modal-description] {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
                 [data-fs-table] {
                     [data-fs-table-content] {
+                        [data-fs-table-head] {
+                            [data-fs-table-cell] {
+                                background-color: var(--fs-color-main-6);
+                            }
+                        }
+
+                        [data-fs-table-body] {
+                            [data-fs-table-cell] {
+                                background-color: transparent;
+                                height: 6rem;
+                            }
+                        }
+
+                        [data-fs-table-head],
                         [data-fs-table-body] {
                             [data-fs-table-row] {
-                                [data-fs-table-cell] {
-                                    &:first-child {
-                                        border: 1px solid red;
-                                        height: auto;
-                                        display: flex;
-                                        flex-direction: row;
-                                        flex-wrap: nowrap;
-                                        justify-content: center;
-                                        align-content: center;
+                                [data-fs-table-cell]:first-child {
+                                    max-width: 40rem;
+                                    text-align: left;
+                                    display: flex;
+                                    align-content: center;
+                                    flex-direction: row;
+                                    flex-wrap: wrap;
 
-                                        span {
-                                            border: 1px solid red;
-                                        }
+                                    span {
+                                        max-width: 22rem;
+                                        padding: 0 1rem;
+                                        white-space: pre-wrap;
+                                        align-content: center;
                                     }
                                 }
                             }
                         }
 
                         [data-fs-table-cell] {
-                            border: 1px solid var(--fs-color-main-0);
+                            // border: .0625rem solid var(--fs-color-main-0);
+                            border-radius: 0;
                         }
                     }
                 }
@@ -104,6 +125,24 @@
                         margin: 3.5rem auto 1.625rem;
                     }
                 }
+            }
+        }
+
+        [data-fs-modal-overlay] {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 99;
+
+            [data-fs-modal-open="false"] {
+                display: none;
+            }
+
+            [data-fs-modal-open="true"] {
+                display: block;
             }
         }
     }
