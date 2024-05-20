@@ -1,0 +1,7 @@
+extend type StoreProduct {
+  """
+  Retrieve the sellerName.
+  """
+  sellerName: String!
+  relatedSkus: String!
+}

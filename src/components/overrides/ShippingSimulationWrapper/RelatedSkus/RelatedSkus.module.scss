@@ -1,5 +1,4 @@
 .RelatedSkus {
-    
     [data-fs-button-variant="primary"] {
         [data-fs-button-wrapper] {
             --fs-button-primary-text-color: var(--fs-color-main-4);
@@ -33,11 +32,12 @@
             button[aria-label="Close"] {
                 display: flex;
                 flex-direction: row;
-                justify-content: end;
+                justify-content: flex-end;
                 align-content: center;
                 position: absolute;
                 top: 1%;
                 right: 0;
+                cursor: pointer;
 
                 span {
                     padding-right: .125rem;
@@ -47,6 +47,7 @@
             [data-fs-modal-header] {
                 display: flex;
                 justify-content: space-between;
+                margin-bottom: .7rem;
 
                 [data-fs-header-title] {
                     font-size: var(--fs-text-size-3);
@@ -59,18 +60,61 @@
                 }
             }
 
-            [data-fs-button-variant="primary"] {
-                [data-fs-button-wrapper] {
-                    --fs-button-primary-text-color: var(--fs-color-main-5);
-                    --fs-button-primary-text-color-hover: var(--fs-color-main-5);
-                    --fs-button-primary-text-color-active: var(--fs-color-main-5);
-                    --fs-button-primary-bkg-color: var(--fs-color-accent-2);
-                    --fs-button-primary-bkg-color-hover: var(--fs-color-accent-1);
-                    --fs-button-primary-bkg-color-active: var(--fs-color-main-4);
-                    --fs-button-text-weight: (--fs-text-weight-bold);
-                    --fs-button-padding: 1rem 7.625rem;
-                    text-decoration: none;
-                    text-transform: uppercase;
+            [data-fs-modal-description] {
+                [data-fs-table] {
+                    [data-fs-table-content] {
+                        // [data-fs-table-head] {
+                        //     [data-fs-table-row] {
+                        //         [data-fs-table-cell] {
+                        //             &:first-child {
+                        //                 text-align: left;
+                        //                 width: 360px;
+                        //             }
+                        //         }
+                        //     }
+                        // }
+
+                        [data-fs-table-body] {
+                            [data-fs-table-row] {
+                                [data-fs-table-cell] {
+                                    &:first-child {
+                                        width: 100px;
+                                        border: 1px solid red;
+                                        height: auto;
+                                        display: flex;
+                                        flex-direction: row;
+                                        flex-wrap: nowrap;
+                                        justify-content: center;
+                                        align-content: center;
+
+                                        span {
+                                            border: 1px solid red;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        [data-fs-table-cell] {
+                            border: 1px solid var(--fs-color-main-0);
+                        }
+                    }
+                }
+                
+                [data-fs-button-variant="primary"] {
+                    [data-fs-button-wrapper] {
+                        --fs-button-primary-text-color: var(--fs-color-main-5);
+                        --fs-button-primary-text-color-hover: var(--fs-color-main-5);
+                        --fs-button-primary-text-color-active: var(--fs-color-main-5);
+                        --fs-button-primary-bkg-color: var(--fs-color-accent-2);
+                        --fs-button-primary-bkg-color-hover: var(--fs-color-accent-1);
+                        --fs-button-primary-bkg-color-active: var(--fs-color-main-4);
+                        --fs-button-text-weight: (--fs-text-weight-bold);
+                        --fs-button-padding: 1rem 7.625rem;
+                        text-decoration: none;
+                        text-transform: uppercase;
+                        margin: 3.5rem auto 1.625rem;
+                    }
                 }
             }
         }
