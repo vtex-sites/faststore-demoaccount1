@@ -84,7 +84,7 @@ const RelatedSkus = () => {
     <div className={styles.RelatedSkus}>
       <Button variant="primary" onClick={() => setShowPopUp(!showPopUp)}>
         Bulbs and Replacement Parts
-        {productStyle && <span>for Style #{productStyle.toUpperCase()}</span>}
+        {productStyle && <span> for Style #{productStyle.toUpperCase()}</span>}
       </Button>
       <div data-fs-related-products-wrapper>
         {showPopUp && (
