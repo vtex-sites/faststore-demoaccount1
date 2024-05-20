@@ -19,7 +19,7 @@ const baseUrl = `https://demoaccount4.myvtex.com/_v/related-parts`
 const relatedSkus = async (root: StoreProductRoot) => {
     // TO DO: update baseUrl with skuid from catalog. Currently no skuiID is return a valid response
     // We are leaving the 1979 skuId hardcoded to mock data for now
-    // const skuId = root.id
+    // const skuId = root.itemId
 
     const skuId = 1979
 
