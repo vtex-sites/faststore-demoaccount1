@@ -15,11 +15,11 @@
     }
 
     [data-fs-related-products-wrapper] {
-
         [data-fs-modal-container] {
             position: fixed;
-            top: 20%;
-            left: 22%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             background-color: var(--fs-color-main-5);
             display: flex;
             flex-direction: column;
@@ -46,7 +46,7 @@
             [data-fs-modal-header] {
                 display: flex;
                 justify-content: space-between;
-                margin-bottom: .7rem;
+                margin-bottom: var(--fs-spacing-2);
 
                 [data-fs-header-title] {
                     font-size: var(--fs-text-size-3);
@@ -82,8 +82,8 @@
                                 min-height: 6rem;
 
                                 [data-fs-input] {
-                                    width: 2.5rem;
-                                    height: 2.5rem;
+                                    width: var(--fs-spacing-6);
+                                    height: var(--fs-spacing-6);
                                     padding: .0625rem;
                                     text-align: center;
                                 }
@@ -143,7 +143,7 @@
                         --fs-button-padding: 1rem 7.625rem;
                         text-decoration: none;
                         text-transform: uppercase;
-                        margin: 3.5rem auto 1.625rem;
+                        margin: var(--fs-spacing-8) auto 1.625rem;
                     }
                 }
             }
