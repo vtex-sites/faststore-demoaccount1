@@ -18,15 +18,17 @@ function LandingHeroTwoColums(props: LandingHeroTwoColumnsProps) {
 
     return (
         <div className={styles.container}>
-            {props.bigtitle !== undefined && props.bigtitle !== null && props.bigtitle !== '' && (
-                <h2 className={styles.bigtitle}>{props.bigtitle}</h2>
+            {(props.image === "image3") && (
+                <h2 className={styles.bigtitle}>Let Yourself Shine</h2>
             )}
-            <div className={styles.contentInfo}>
-                <h3 className={styles.title}>{props.title}</h3>
-                <p className={styles.subtitle}>{props.subtitle}</p>
-            </div>
-            <div className={styles.image}>
-                <Image src={image} alt={props.title} />
+            <div className={`${styles.contentFlex} ${(props.image !== "image3") && `${styles.contentFlexInvert}`}`}>
+                <div className={styles.image}>
+                    <Image src={image} alt={props.title} />
+                </div>
+                <div className={styles.contentInfo}>
+                    <h3 className={styles.title}>{props.title}</h3>
+                    <p className={styles.subtitle}>{props.subtitle}</p>
+                </div>
             </div>
         </div>
     )

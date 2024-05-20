@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
-import styles from './styles/top-categories.module.css'
+import styles from './styles/more-to-explore.module.css'
 import image1 from "./assets/images/more-to-explore/icon1.svg";
 import image2 from "./assets/images/more-to-explore/icon2.svg";
 import image3 from "./assets/images/more-to-explore/icon3.svg";
@@ -49,7 +49,9 @@ function MoreToExplore(props: MoreToExploreProps) {
         {MoreToExploreList.map((category):any => (
             <li key={category.id} className={styles.categoryItemList}>
                 <a href="#" title={`Go to ${category.name}`} className={styles.categoryItemListlink}>
-                    <Image className={styles.categoryImage} src={category?.src} alt={`Go to ${category.name}`} />
+                    <div className={styles.categoryItemListImage}>
+                        <Image className={styles.categoryImage} src={category?.src} alt={`Go to ${category.name}`} />
+                    </div>
                     <span className={styles.categoryName}>{category.name}</span>
                 </a>
             </li>
