@@ -1,9 +1,5 @@
 extend type StoreProduct {
   """
-  Retrieve the productStyle.
-  """
-  productStyle: String!
-  """
   Retrieve the recommended products info.
   """
   relatedSkus: RelatedSkus!
