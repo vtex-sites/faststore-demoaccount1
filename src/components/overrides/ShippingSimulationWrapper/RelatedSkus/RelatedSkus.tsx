@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Icon, Button, Table, TableHead, TableRow, TableCell, TableBody, Price } from '@faststore/ui'
+import { Icon, Button, Table, TableHead, TableRow, TableCell, TableBody, Price, Input } from '@faststore/ui'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { usePDP }  from "@faststore/core"
 
@@ -16,7 +16,14 @@ const RelatedSkus = () => {
 
     const popUpRef = useRef<HTMLDivElement | null>(null)
     const [showPopUp, setShowPopUp] = useState<boolean>(false)
+    const [inputValues, setInputValues] = useState(Array(relatedSkus.items[0].relatedSkus.length).fill(''))
   
+    const handleInputChange = (index: number, event: any) => {
+        const newInputValues = [...inputValues];
+        newInputValues[index] = event.target.value;
+        setInputValues(newInputValues);
+    }
+
     useEffect(() => {
       const handleOnDismiss = (event: MouseEvent) => {
         if (!popUpRef?.current?.contains(event.target as Node)) {
@@ -30,6 +37,10 @@ const RelatedSkus = () => {
         document.removeEventListener('mousedown', handleOnDismiss)
       }
     }, [])
+
+    useEffect(() => {
+        setInputValues(relatedSkus.items[0].relatedSkus.map((sku: any) => sku.quantity.toString()));
+    }, [relatedSkus]);
   
     return (
       <div className={styles.RelatedSkus}>
@@ -85,7 +96,13 @@ const RelatedSkus = () => {
                                     </span>
                                     </TableCell>
                                     <TableCell>{sku.relatedSkuRefId}</TableCell>
-                                    <TableCell>{sku.quantity}</TableCell>
+                                    <TableCell>
+                                        <Input
+                                            type="text"
+                                            value={inputValues[i]}
+                                            onChange={(event) => handleInputChange(i, event)}
+                                        />
+                                    </TableCell>
                                     <TableCell>
                                     <Price formatter={useFormattedPrice} value={4.99} />
                                     </TableCell>

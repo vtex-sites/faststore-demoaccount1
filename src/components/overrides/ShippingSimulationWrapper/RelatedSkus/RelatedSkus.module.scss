@@ -15,19 +15,17 @@
     }
 
     [data-fs-related-products-wrapper] {
-        border: 2px solid red;
-        position: absolute;
-        top: 20%;
-        left: 25%;
 
         [data-fs-modal-container] {
+            position: fixed;
+            top: 20%;
+            left: 22%;
             background-color: var(--fs-color-main-5);
             display: flex;
             flex-direction: column;
             padding: 1.875rem;
-            width: 55rem;
+            width: auto;
             height: auto;
-            position: relative;
             z-index: 100;
 
             button[aria-label="Close"] {
@@ -69,6 +67,9 @@
 
                 [data-fs-table] {
                     [data-fs-table-content] {
+                        border-collapse: separate;
+                        border-spacing: 0;
+
                         [data-fs-table-head] {
                             [data-fs-table-cell] {
                                 background-color: var(--fs-color-main-6);
@@ -78,7 +79,14 @@
                         [data-fs-table-body] {
                             [data-fs-table-cell] {
                                 background-color: transparent;
-                                height: 6rem;
+                                min-height: 6rem;
+
+                                [data-fs-input] {
+                                    width: 2.5rem;
+                                    height: 2.5rem;
+                                    padding: .0625rem;
+                                    text-align: center;
+                                }
                             }
                         }
 
@@ -86,7 +94,7 @@
                         [data-fs-table-body] {
                             [data-fs-table-row] {
                                 [data-fs-table-cell]:first-child {
-                                    max-width: 40rem;
+                                    width: 24rem;
                                     text-align: left;
                                     display: flex;
                                     align-content: center;
@@ -94,18 +102,31 @@
                                     flex-wrap: wrap;
 
                                     span {
-                                        max-width: 22rem;
+                                        max-width: 16.875rem;
                                         padding: 0 1rem;
                                         white-space: pre-wrap;
                                         align-content: center;
                                     }
                                 }
+
+                                [data-fs-table-cell]:not(:first-child) {
+                                    min-width: 7rem;
+                                }
                             }
                         }
 
                         [data-fs-table-cell] {
-                            // border: .0625rem solid var(--fs-color-main-0);
+                            font-size: var(--fs-text-size-0);
+                            border: .0625rem solid var(--fs-color-main-0);
                             border-radius: 0;
+
+                            [data-fs-price-variant] {
+                                font-variant-numeric: tabular-nums;
+
+                                &::after {
+                                    font-variant-numeric: proportional-nums;
+                                }
+                            }
                         }
                     }
                 }
