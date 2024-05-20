@@ -1,7 +1,7 @@
-import sellerName from './sellerName'
+import productStyle from './productStyle'
 import relatedSkus from './relatedSkus'
 
 export {
-  sellerName,
+  productStyle,
   relatedSkus,
 }

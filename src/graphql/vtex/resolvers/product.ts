@@ -1,5 +1,5 @@
 import {
-  sellerName,
+  productStyle,
   relatedSkus,
 } from './handlers'
 
@@ -9,7 +9,7 @@ const productResolver = {
      * @param ProductStoreRoot
      * @returns
      */
-    sellerName,
+    productStyle,
     relatedSkus,
   },
 }
