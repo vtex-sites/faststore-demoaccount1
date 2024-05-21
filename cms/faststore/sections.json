@@ -75,5 +75,74 @@
         "description": "A list of Featured Lighthing",
         "type": "object"
       }
+    },
+    {
+      "name": "LandingHero",
+      "schema": {
+        "title": "Landing Hero",
+        "description": "Landing Hero Component",
+        "type": "object",
+        "properties": {
+          "title": {
+            "title": "Hero Title",
+            "type": "string"
+          },
+          "subtitle": {
+            "title": "Hero Subtitle",
+            "type": "string"
+          },
+          "image": {
+            "title": "Hero image",
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "LandingHeroTwoColumns",
+      "schema": {
+        "title": "Landing Hero two columns",
+        "description": "Landing Hero with two columns Component",
+        "type": "object",
+        "properties": {
+          "title": {
+            "title": "Hero Title",
+            "type": "string"
+          },
+          "subtitle": {
+            "title": "Hero Subtitle",
+            "type": "string"
+          },
+          "image": {
+            "title": "Hero image",
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "MoreToExplore",
+      "schema": {
+        "title": "More To Explore",
+        "description": "More To Explore items",
+        "type": "object",
+        "required": [
+          "title"
+        ],
+        "properties": {
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "GetInspired",
+      "schema": {
+        "title": "Get Inspired",
+        "description": "Social media links",
+        "type": "object"
+      }
     }
   ]
