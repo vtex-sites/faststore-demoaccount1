@@ -208,7 +208,7 @@
             },
             "richText": {
               "title": "Rich Text",
-              "type": "string",
+              "type": "object",
               "properties": {
                 "title": {
                   "title": "Title",
