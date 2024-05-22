@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./RoomIdeasNavigation.module.scss";
 import { Button } from '@faststore/ui'
 
@@ -33,14 +33,21 @@ function RoomIdeasNavigation({
   navigation: { menu, grid },
   return: returnBtn,
 }: RoomIdeasNavigationProps) {
-  const path = window.location.pathname
+  
+  const [path, setPath] = useState<string | null>(null);
+
+    useEffect(() => {
+      if (typeof window !== 'undefined') {
+          setPath(window.location.pathname);
+      }
+    }, []);
 
   return (
     <section className={styles.RoomIdeasNavigation}>
       <ul data-fs-room-ideas-menu>
         {menu.map((menuItem, index) => (
           <li key={index} data-fs-room-ideas-menu-item>
-            <a data-fs-menu-item-location={path.includes(menuItem.url)} href={menuItem.url} target="_blank">{menuItem.text}</a>
+            <a data-fs-menu-item-location={path ? path.includes(menuItem.url) : false} href={menuItem.url} target="_blank">{menuItem.text}</a>
           </li>
         ))}
       </ul>
