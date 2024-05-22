@@ -13,6 +13,11 @@
         "description": {
           "title": "Description",
           "type": "string"
+        },
+        "isMainDescription": {
+          "title": "Is the main description?",
+          "type": "boolean",
+          "default": false
         }
       }
     }
@@ -201,14 +206,18 @@
                 }
               }
             },
-            "description": {
-              "title": {
-                "title": "Title",
-                "type": "string"
-              },
-              "description": {
-                "title": "Description",
-                "type": "string"
+            "richText": {
+              "title": "Rich Text",
+              "type": "string",
+              "properties": {
+                "title": {
+                  "title": "Title",
+                  "type": "string"
+                },
+                "description": {
+                  "title": "Description",
+                  "type": "string"
+                }
               }
             },
             "return": {
