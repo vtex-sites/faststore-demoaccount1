@@ -7,7 +7,7 @@ import formatProducts from '../../../utils/formatProducts copy'
 import styles from './RoomIdea.module.scss'
 
 function RoomIdea({
-  first = 10,
+  first = 100,
   after = '0',
   term = '',
   productGrid: {
