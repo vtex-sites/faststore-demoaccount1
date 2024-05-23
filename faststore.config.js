@@ -11,7 +11,6 @@ module.exports = {
   theme: 'custom-theme',
 
   // Ecommerce Platform
-//
   platform: 'vtex',
 
   // Platform specific configs for API
