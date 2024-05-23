@@ -47,13 +47,13 @@ function RoomIdeasNavigation({
       <ul data-fs-room-ideas-menu>
         {menu.map((menuItem, index) => (
           <li key={index} data-fs-room-ideas-menu-item>
-            <a data-fs-menu-item-location={path ? path.includes(menuItem.url) : false} href={menuItem.url} target="_blank">{menuItem.text}</a>
+            <a data-fs-menu-item-location={path ? path.includes(menuItem.url) : false} href={menuItem.url}>{menuItem.text}</a>
           </li>
         ))}
       </ul>
       <div data-fs-room-ideas-grid>
         {grid.map((gridItem, index) => (
-            <a key={index} href={gridItem.url} target="_blank" data-fs-room-ideas-grid-item>
+            <a key={index} href={gridItem.url} data-fs-room-ideas-grid-item>
                 <img data-fs-grid-item-img data-fs-grid-idea={gridItem.button ? true : false} src={gridItem.image.src} alt={gridItem.image.alt} />
                 {gridItem.button && <Button data-fs-grid-item-btn>{gridItem.button}</Button>}
                 {gridItem.title && <div data-fs-grid-item-title>{gridItem.title}</div>}
