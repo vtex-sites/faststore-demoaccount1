@@ -1,7 +1,7 @@
 export const GetRoomIdeas = async (
   _: any,
 ) => {
-    const baseUrl = `http://videv--demoaccount1.myvtex.com/_v/cms/api/faststore/roomIdea?filters[status]=published`
+    const baseUrl = `http://demoaccount1.myvtex.com/_v/cms/api/faststore/roomIdea?filters[status]=published`
     try {
     const response = await fetch(
         `${baseUrl}`

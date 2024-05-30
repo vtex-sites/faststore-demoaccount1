@@ -1,6 +1,6 @@
 import { gql } from '@faststore/graphql-utils'
 
-export const GetRoomIdeas = gql`
+export const GetRoomIdeasQuery = gql`
   query GetRoomIdeasQuery() {
     GetRoomIdeas() {
       data
