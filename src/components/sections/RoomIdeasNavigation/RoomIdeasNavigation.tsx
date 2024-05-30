@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./RoomIdeasNavigation.module.scss";
 import { Button } from '@faststore/ui'
+import { useQuery } from 'src/sdk/graphql/useQuery'
 
 export interface RoomIdeasNavigationProps {
   navigation: {
@@ -36,11 +37,35 @@ function RoomIdeasNavigation({
   
   const [path, setPath] = useState<string | null>(null);
 
-    useEffect(() => {
-      if (typeof window !== 'undefined') {
-          setPath(window.location.pathname);
-      }
-    }, []);
+  const [data, setData] = useState<string>('');
+  const [requested, setRequested] = useState<string>('no');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+        setPath(window.location.pathname);
+    }
+  }, []);
+
+  useQuery<any>(
+    `GetRoomIdeasQuery`,
+    {
+      id: ''
+    },
+    {
+      onSuccess: (data: any) => {
+        setData(data)
+        setRequested('yes')
+      },
+      onError: () => {
+        setRequested('yes, error')
+      },
+    }
+  )
+
+  useEffect(() => {
+    console.log('VI: data:', data);
+    console.log('VI: requested:', requested);
+  }, [data, requested])
 
   return (
     <section className={styles.RoomIdeasNavigation}>
