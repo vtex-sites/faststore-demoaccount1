@@ -1,4 +1,9 @@
 type Query {
-  roomIdeas(id: String!): String
-  GetUserInformation(id: String!): String
+  GetRoomIdeas(id: String!): [RoomIdea]
+}
+
+type RoomIdea {
+  name: String!
+  slug: String!
+  isNavigation: Boolean!
 }

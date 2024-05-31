@@ -1,7 +1,11 @@
-import { gql } from '@faststore/graphql-utils'
+import { gql } from '@generated/gql'
 
-export const GetRoomIdeasQuery = gql`
-  query GetRoomIdeasQuery($id: String!) {
-    roomIdeas(id: $id)
+export const GetRoomIdeas = gql`
+  query GetRoomIdeas($id: String!) {
+    GetRoomIdeas(id: $id) {
+      name
+      slug
+      isNavigation
+    }
   }
 `

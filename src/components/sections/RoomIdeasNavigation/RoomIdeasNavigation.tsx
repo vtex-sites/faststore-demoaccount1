@@ -3,6 +3,7 @@ import styles from "./RoomIdeasNavigation.module.scss";
 import { Button } from '@faststore/ui'
 // import { useQuery } from '../../../../../../src/sdk/graphql/useQuery'
 import { useQuery } from 'src/sdk/graphql/useQuery'
+import { GetRoomIdeas } from "../../../fragments/GetRoomIdeas";
 
 
 const items = [
@@ -61,11 +62,9 @@ function RoomIdeasNavigation({
   }
 
   const test: any = useQuery(
-    `GetUserInformation`,
+    GetRoomIdeas,
     params
   )
-
-  console.log('v: test-23--', test)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -73,22 +72,17 @@ function RoomIdeasNavigation({
     }
   }, []);
 
-  // useEffect(() => {
-  //   if (!test) {
-  //     return
-  //   }
+  useEffect(() => {
+    if (!test) {
+      return
+    }
 
-  //   if (test) {
-  //     console.log('v: test---', test)
-  //     setData(test.data)
-  //   } else {
-  //     console.log('vi: No data available:');
-  //   }
-  // }, [test])
+    setData(test.data.GetRoomIdeas)
+  }, [test])
 
-  // useEffect(() => {
-  //   console.log('VI: data:', data);
-  // }, [data])
+  useEffect(() => {
+    console.log('VI: data:', data);
+  }, [data])
 
   return (
     <section className={styles.RoomIdeasNavigation}>
