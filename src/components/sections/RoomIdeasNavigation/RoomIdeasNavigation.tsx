@@ -1,8 +1,25 @@
 import React, { useState, useEffect } from "react";
 import styles from "./RoomIdeasNavigation.module.scss";
 import { Button } from '@faststore/ui'
+// import { useQuery } from '../../../../../../src/sdk/graphql/useQuery'
 import { useQuery } from 'src/sdk/graphql/useQuery'
 
+
+const items = [
+  {
+    id: '232121',
+    quantity: 2,
+    seller: 1,
+  },
+]
+
+export interface UserInformation {
+  // Custom query type
+  userInformation: {
+    // Custom query postal code result
+    postalCode: string
+  }
+}
 export interface RoomIdeasNavigationProps {
   navigation: {
     grid: GridItem[];
@@ -37,8 +54,18 @@ function RoomIdeasNavigation({
   
   const [path, setPath] = useState<string | null>(null);
 
-  const [data, setData] = useState<string>('');
-  const [requested, setRequested] = useState<string>('no');
+  const [data, setData] = useState<any>('');
+
+  const params = {
+    id: "1212"
+  }
+
+  const test: any = useQuery(
+    `GetUserInformation`,
+    params
+  )
+
+  console.log('v: test-23--', test)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -46,26 +73,22 @@ function RoomIdeasNavigation({
     }
   }, []);
 
-  useQuery<any>(
-    `GetRoomIdeasQuery`,
-    {
-      id: ''
-    },
-    {
-      onSuccess: (data: any) => {
-        setData(data)
-        setRequested('yes')
-      },
-      onError: () => {
-        setRequested('yes, error')
-      },
-    }
-  )
+  // useEffect(() => {
+  //   if (!test) {
+  //     return
+  //   }
 
-  useEffect(() => {
-    console.log('VI: data:', data);
-    console.log('VI: requested:', requested);
-  }, [data, requested])
+  //   if (test) {
+  //     console.log('v: test---', test)
+  //     setData(test.data)
+  //   } else {
+  //     console.log('vi: No data available:');
+  //   }
+  // }, [test])
+
+  // useEffect(() => {
+  //   console.log('VI: data:', data);
+  // }, [data])
 
   return (
     <section className={styles.RoomIdeasNavigation}>

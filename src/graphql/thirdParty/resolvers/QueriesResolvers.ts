@@ -1,8 +1,10 @@
-import { GetRoomIdeas } from './queries/getRoomIdeas'
+import { roomIdeas } from './queries/getRoomIdeas'
+import { GetUserInformation } from './queries/getUserInformation'
 
 const QueriesResolvers = {
   Query: {
-    GetRoomIdeas,
+    roomIdeas,
+    GetUserInformation,
   },
 }
 
