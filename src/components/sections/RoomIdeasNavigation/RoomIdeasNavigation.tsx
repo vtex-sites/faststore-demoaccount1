@@ -54,14 +54,14 @@ function RoomIdeasNavigation({
 }: RoomIdeasNavigationProps) {
   
   const [path, setPath] = useState<string | null>(null);
-
   const [data, setData] = useState<any>('');
+  const [menuItemsList, setMenuItemsList] = useState<any>();
 
   const params = {
     id: "1212"
   }
 
-  const test: any = useQuery(
+  const GetRoomIdeasInfo: any = useQuery(
     GetRoomIdeas,
     params
   )
@@ -73,23 +73,26 @@ function RoomIdeasNavigation({
   }, []);
 
   useEffect(() => {
-    if (!test) {
+    if (!GetRoomIdeasInfo) {
       return
     }
 
-    setData(test.data.GetRoomIdeas)
-  }, [test])
+    setData(GetRoomIdeasInfo?.data?.GetRoomIdeas)
+  }, [GetRoomIdeasInfo]);
+
 
   useEffect(() => {
-    console.log('VI: data:', data);
-  }, [data])
+    if (data) {
+      setMenuItemsList(data.filter((item: any) => item.isNavigation))
+    }
+  }, [data]);
 
   return (
     <section className={styles.RoomIdeasNavigation}>
       <ul data-fs-room-ideas-menu>
-        {menu.map((menuItem, index) => (
+        {menuItemsList && menuItemsList.map((menuItem: any, index: number) => (
           <li key={index} data-fs-room-ideas-menu-item>
-            <a data-fs-menu-item-location={path ? path.includes(menuItem.url) : false} href={menuItem.url} target="_blank">{menuItem.text}</a>
+            <a data-fs-menu-item-location={path ? path.includes(menuItem.slug) : false} href={menuItem.slug} target="_blank">{menuItem.name}</a>
           </li>
         ))}
       </ul>
