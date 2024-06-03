@@ -1,0 +1,42 @@
+type Query {
+  GetRoomIdeas(id: String!): RoomIdeas
+  GetRoomScenes(roomId: String!): [RoomScene]
+}
+
+type RoomIdeas {
+  callToActionBtn: CallToActionBtn!
+  returnBtn: ReturnBtn!
+  roomIdeas: [RoomIdea]
+}
+
+type CallToActionBtn {
+  text: String!
+  newWindow: Boolean!
+}
+
+type ReturnBtn {
+  text: String!
+  url: String!
+  newWindow: Boolean!
+}
+
+type RoomIdea {
+  id: String!
+  ID: String!
+  image: String!
+  alt: String!
+  name: String!
+  order: String!
+  url: String!
+}
+
+type RoomScene {
+  id: String!
+  ID: String!
+  image: String!
+  alt: String!
+  collectionId: String!
+  roomId: String!
+  order: String!
+  url: String!
+}

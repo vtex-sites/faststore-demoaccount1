@@ -13,7 +13,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["node_modules/@faststore/core/src/*"],
+      "app/*": ["node_modules/@faststore/core/app/*"],
+      "@test-utils": ["./jest/test-utils"],
+      "@generated/*": ["node_modules/@faststore/core/@generated/*"],
+      "api/*": ["node_modules/@faststore/core/api/*"]
+    }
   },
   "include": ["*.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "public", ".faststore"]

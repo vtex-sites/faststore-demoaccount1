@@ -1,0 +1,64 @@
+[
+    {
+        "id": "roomIdea",
+        "name": "Room Idea Page",
+        "configurationSchemaSets": [
+            {
+                "name": "Settings",
+                "configurations": [
+                  {
+                    "name": "seo",
+                    "schema": {
+                      "title": "SEO",
+                      "description": "Search Engine Optimization options",
+                      "type": "object",
+                      "widget": {
+                        "ui:ObjectFieldTemplate": "GoogleSeoPreview"
+                      },
+                      "required": ["slug", "title", "description"],
+                      "properties": {
+                        "slug": {
+                          "title": "Path",
+                          "type": "string",
+                          "default": "/"
+                        },
+                        "title": {
+                          "title": "Default page title",
+                          "description": "Display this title when no other tile is available",
+                          "type": "string",
+                          "default": "FastStore Starter"
+                        },
+                        "description": {
+                          "title": "Meta tag description",
+                          "type": "string",
+                          "default": "A beautifully designed store"
+                        },
+                        "canonical": {
+                          "title": "Canonical url for the page",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "name": "roomConfig",
+                    "schema": {
+                      "title": "Room Manager Configuration",
+                      "description": "Room Manager Configuration",
+                      "type": "object",
+                      "required": ["isNavigation"],
+                      "properties": {
+                        "isNavigation": {
+                          "title": "Is Navigation Item?",
+                          "description": "Set true is the page should display in the Room navigation",
+                          "type": "boolean",
+                          "default": false
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+        ]
+    }
+]

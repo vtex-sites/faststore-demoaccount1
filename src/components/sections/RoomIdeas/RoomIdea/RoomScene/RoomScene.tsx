@@ -3,34 +3,30 @@ import fsconfig from 'faststore.config'
 import { useQuery } from 'src/sdk/graphql/useQuery'
 import { ClientManyProductsQueryDocument } from '@generated/graphql'
 import ProductCard from './ProductCard/ProductCard'
-import formatProducts from '../../../utils/formatProducts copy'
+import formatProducts from '../../../../../utils/formatProducts copy'
 import styles from './RoomIdea.module.scss'
 
-function RoomIdea({
-  first = 100,
-  after = '0',
-  term = '',
-  productGrid: {
-    selectedFacets,
-    sort,
-    return: returnBtn
-  },
-  image
-}: any) {
+export interface RoomSceneProps {
+  image: string
+  alt: string
+  collectionId: string
+}
 
-  if (selectedFacets && selectedFacets.length > 0) {
-    selectedFacets = [...selectedFacets].map(({ key, value }) => {
-      return {
-        key,
-        value: encodeURI(value),
-      }
-    })
-  }
+function RoomScene({
+  collectionId,
+  alt,
+  image
+}: RoomSceneProps) {
+
+  const selectedFacets = [
+    {key: 'productClusterIds', value: collectionId}
+  ]
 
   const queryVariables = {
-    first,
-    after,
-    sort,
+    first: 10,
+    after: '0',
+    term: '',
+    sort: 'score_desc',
     selectedFacets: selectedFacets
       ? [
           ...selectedFacets,
@@ -40,7 +36,6 @@ function RoomIdea({
           },
         ]
       : [],
-    term,
   }
 
   const pds: any = useQuery(ClientManyProductsQueryDocument, queryVariables)
@@ -59,7 +54,7 @@ function RoomIdea({
   return (
     <div className={styles.RoomIdea}>
       <div data-fs-room-idea-image>
-        <img src={image.src} alt={image.alt} />
+        <img src={image} alt={alt} />
       </div>
       <div data-fs-room-idea-products>
         {products.length > 0 ? (
@@ -77,11 +72,8 @@ function RoomIdea({
           <></>
         )}
       </div>
-      <div data-fs-room-idea-return>
-        <a data-fs-room-idea-return-link href={returnBtn.url}>{returnBtn.text}</a>
-      </div>
     </div>
   )
 }
 
-export default RoomIdea
+export default RoomScene

@@ -1,4 +1,4 @@
-.RoomIdeasNavigation {
+.RoomIdeas {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,15 +56,41 @@
         align-items: center;
         flex-wrap: wrap;
 
+        [data-fs-room-ideas-grid-container] {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        [data-fs-room-ideas-grid-items] {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
         [data-fs-room-ideas-grid-item] {
             display: flex;
             flex-direction: column;
             position: relative;
-            padding: 15px;
+            margin: 15px;
             text-decoration: none;
+            overflow: hidden;
 
             [data-fs-grid-item-btn] {
                 display: none;
+            }
+
+            [data-fs-grid-idea="true"] {
+                width: 404px;
+                height: 404px;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                object-fit: cover;
+                object-position: center;
+                scale: 1.3;
             }
 
             &:hover {

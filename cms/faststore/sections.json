@@ -389,5 +389,143 @@
           }
         }
       }
+    },
+    {
+      "name": "CategoriesOffers",
+      "schema": {
+        "title": "Categories Offers",
+        "description": "A list of categories offers",
+        "type": "object"
+      }
+    },
+    {
+      "name": "BannerImages",
+      "schema": {
+        "title": "Banner with Images",
+        "description": "A Banner with Images",
+        "type": "object",
+        "properties": {
+          "link": {
+            "title": "Link",
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "BrandsLine",
+      "schema": {
+        "title": "Brands Line",
+        "description": "A list of brands",
+        "type": "object"
+      }
+    },
+    {
+      "name": "FeaturedLighthing",
+      "schema": {
+        "title": "Featured Lighthing",
+        "description": "A list of Featured Lighthing",
+        "type": "object"
+      }
+    },
+    {
+      "name": "LandingHero",
+      "schema": {
+        "title": "Landing Hero",
+        "description": "Landing Hero Component",
+        "type": "object",
+        "properties": {
+          "title": {
+            "title": "Hero Title",
+            "type": "string"
+          },
+          "subtitle": {
+            "title": "Hero Subtitle",
+            "type": "string"
+          },
+          "image": {
+            "title": "Hero image",
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "LandingHeroTwoColumns",
+      "schema": {
+        "title": "Landing Hero two columns",
+        "description": "Landing Hero with two columns Component",
+        "type": "object",
+        "properties": {
+          "title": {
+            "title": "Hero Title",
+            "type": "string"
+          },
+          "subtitle": {
+            "title": "Hero Subtitle",
+            "type": "string"
+          },
+          "image": {
+            "title": "Hero image",
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "MoreToExplore",
+      "schema": {
+        "title": "More To Explore",
+        "description": "More To Explore items",
+        "type": "object",
+        "required": [
+          "title"
+        ],
+        "properties": {
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "GetInspired",
+      "schema": {
+        "title": "Get Inspired",
+        "description": "Social media links",
+        "type": "object"
+      }
+    },
+    {
+      "name": "RichText",
+      "schema": {
+        "title": "Rich Text",
+        "description": "Rich text component",
+        "type": "object",
+        "properties": {
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "isMainDescription": {
+            "title": "Is the main description?",
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    },
+    {
+      "name": "RoomIdeas",
+      "schema": {
+        "title": "Room Ideas",
+        "type": "object",
+        "description": "Room Ideas Component"
+      }
     }
   ]
