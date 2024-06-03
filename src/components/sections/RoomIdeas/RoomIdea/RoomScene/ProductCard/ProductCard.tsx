@@ -1,7 +1,7 @@
 import { ProductCard as UIProductCard, ProductCardImage, Link } from '@faststore/ui'
 import NextLink from 'next/link'
 import { useProductLink } from 'src/sdk/product/useProductLink'
-import { useFormattedPrice } from '../../../../utils/useFormattedPrice'
+import { useFormattedPrice } from '../../../../../../utils/useFormattedPrice'
 import ProductCardContent from './ProductCardContent'
 import { Image } from 'src/components/ui/Image'
 

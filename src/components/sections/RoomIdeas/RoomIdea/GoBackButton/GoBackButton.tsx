@@ -7,24 +7,26 @@ export interface GoBackButtonProps {
     newWindow: boolean;
   };
   param?: string;
+  url?: string;
 }
 
 function GoBackButton({
   returnBtn,
-  param
+  param,
+  url
 }: GoBackButtonProps) {
 
   const replaceParam = (text: string, param: string | undefined) => {
     return param ? text.replace("{PARAM}", param.toUpperCase()) : text;
   };
 
-  const buttonText = replaceParam(returnBtn.text, param);
+  const buttonText = replaceParam(returnBtn.text, param)
   
   return (
     <>
       {param &&
       <div data-fs-room-idea-return>
-        <a data-fs-room-idea-return-link href={returnBtn.url}>{buttonText}</a>
+        <a data-fs-room-idea-return-link href={url ? url : returnBtn.url}>{buttonText}</a>
       </div>}
     </>
   );

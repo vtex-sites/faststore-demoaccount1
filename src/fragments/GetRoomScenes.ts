@@ -6,6 +6,7 @@ export const GetRoomScenes = gql`
       id
       ID
       image
+      alt
       collectionId
       roomId
       order

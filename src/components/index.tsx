@@ -10,7 +10,6 @@ import MoreToExplore from "./MoreToExplore";
 import GetInspired from "./GetInspired";
 import RichText from "./sections/RichText/RichText";
 import RoomIdeas from "./sections/RoomIdeas/RoomIdeas";
-import RoomScenes from "./sections/RoomScenes/RoomScenes";
 
 export default { 
     Countdown, 
@@ -25,5 +24,4 @@ export default {
     GetInspired,
     RichText,
     RoomIdeas,
-    RoomScenes,
 }

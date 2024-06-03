@@ -32,6 +32,7 @@ export const GetRoomIdeas = async (_: any, { id }: any) => {
             id: "bathroom",
             ID: "bathroom",
             image: "https://www.lampsplus.com/images/landing-pages/shop-by-room/grid3x3/bathroom.jpg",
+            alt: 'bathroom scene',
             name: "Bathroom",
             order: "4",
             url: "/room_bathroom"
@@ -40,6 +41,7 @@ export const GetRoomIdeas = async (_: any, { id }: any) => {
             id: "bedroom",
             ID: "bedroom",
             image: "https://www.lampsplus.com/images/landing-pages/shop-by-room/grid3x3/bedroom.jpg",
+            alt: 'bedroom scene',
             name: "Bedroom",
             order: "5",
             url: "/room_bedroom"
@@ -61,6 +63,7 @@ export const GetRoomIdeas = async (_: any, { id }: any) => {
                 id: '',
                 ID: '',
                 image: '',
+                alt: '',
                 name: '',
                 order: '',
                 url: ''

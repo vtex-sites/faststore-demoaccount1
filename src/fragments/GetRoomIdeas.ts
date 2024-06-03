@@ -16,6 +16,7 @@ export const GetRoomIdeas = gql`
         id
         ID
         image
+        alt
         name
         order
         url
