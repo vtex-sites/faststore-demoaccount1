@@ -18,6 +18,7 @@ function RoomIdeas() {
     id: "1212"
   }
 
+  // We request all the roomIdeas information
   const GetRoomIdeasInfo: any = useQuery(
     GetRoomIdeas,
     params

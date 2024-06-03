@@ -18,6 +18,7 @@ function RichText({ title, description, isMainDescription }: RichTextProps) {
     }
   }, []);
 
+  // Temp fix to hide rich text in room scene since its not a different path and we are adding a param
   useEffect(() => {
     if (!path || !path.includes("?scene")) {
       setLoading(false);
