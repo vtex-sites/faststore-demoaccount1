@@ -102,7 +102,7 @@ function RoomIdea({
     <div data-fs-room-ideas-grid>
       {selectedScene ? (
         <>
-          <RoomScene image={selectedScene.image} collectionId={selectedScene.collectionId} alt={'alt'}/>
+          <RoomScene image={selectedScene.image} collectionId={selectedScene.collectionId} alt={selectedScene.alt}/>
           <GoBackButton returnBtn={returnBtn} param={param} url={`/shop-by-room${newUrl}`}/>
         </>
       ) : (
