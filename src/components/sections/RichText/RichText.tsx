@@ -11,7 +11,7 @@ function RichText({ title, description, isMainDescription }: RichTextProps) {
 
   const [path, setPath] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [scene, isScene] = useState<boolean>(true);
+  const [scene, isScene] = useState<boolean>(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -28,6 +28,8 @@ function RichText({ title, description, isMainDescription }: RichTextProps) {
     isScene(true);
     setLoading(false);
   }, [path]);
+
+  console.log('setLoading', loading, scene)
 
   return (
     <>

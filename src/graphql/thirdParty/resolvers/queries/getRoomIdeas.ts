@@ -1,21 +1,19 @@
-const baseUrl = `https://demoaccount1.myvtex.com/api/dataentities/RI/search?_fields=id%2CID%2Cimage%2Cname%2Corder%2Curl`
+const baseUrl = `https://demoaccount1.myvtex.com/_v/room-ideas-manager/getRoomIdeas`
 
 export const GetRoomIdeas = async (_: any, { id }: any) => {
 
     try {
-    // const response = await fetch(
-    //     `${baseUrl}`
-    // )
+    const response = await fetch(
+        `${baseUrl}`
+    )
 
-    // if (!response.ok) {
-    //     throw new Error(
-    //         `Error in the VTEX API response: ${response}. Retrying request...`
-    //     )
-    // }
+    if (!response.ok) {
+        throw new Error(
+            `Error in the VTEX API response: ${response}. Retrying request...`
+        )
+    }
 
-    // const responseData = await response.json()
-
-    // return responseData
+    const roomIdeas = await response.json()
 
     return {
         callToActionBtn: {
@@ -27,25 +25,7 @@ export const GetRoomIdeas = async (_: any, { id }: any) => {
             url: "/shop-by-room",
             newWindow: true,
         },
-        roomIdeas: [
-        {
-            id: "bathroom",
-            ID: "bathroom",
-            image: "https://www.lampsplus.com/images/landing-pages/shop-by-room/grid3x3/bathroom.jpg",
-            alt: 'bathroom scene',
-            name: "Bathroom",
-            order: "4",
-            url: "/room_bathroom"
-        },
-        {
-            id: "bedroom",
-            ID: "bedroom",
-            image: "https://www.lampsplus.com/images/landing-pages/shop-by-room/grid3x3/bedroom.jpg",
-            alt: 'bedroom scene',
-            name: "Bedroom",
-            order: "5",
-            url: "/room_bedroom"
-        }]
+        roomIdeas
     }
 
     } catch (error) {
