@@ -15,7 +15,7 @@ function RoomIdeas() {
   const [roomIdeas, setRoomIdeas] = useState<any>('');
 
   const params = {
-    id: "1"
+    id: "1212"
   }
 
   const GetRoomIdeasInfo: any = useQuery(

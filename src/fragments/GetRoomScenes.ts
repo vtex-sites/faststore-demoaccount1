@@ -13,4 +13,4 @@ export const GetRoomScenes = gql`
       url
     }
   }
-`
+`;
