@@ -266,6 +266,14 @@
       }
     },
     {
+      "name": "RoomIdeas",
+      "schema": {
+        "title": "Room Ideas",
+        "type": "object",
+        "description": "Room Ideas Component"
+      }
+    },
+    {
       "name": "RoomIdea",
       "schema": {
         "title": "Room Idea",

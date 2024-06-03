@@ -9,8 +9,8 @@ import LandingHeroTwoColumns from "./LandingHeroTwoColumns";
 import MoreToExplore from "./MoreToExplore";
 import GetInspired from "./GetInspired";
 import RichText from "./sections/RichText/RichText";
-import RoomIdeasNavigation from "./sections/RoomIdeasNavigation/RoomIdeasNavigation";
-import RoomIdea from "./sections/RoomIdea/RoomIdea";
+import RoomIdeas from "./sections/RoomIdeas/RoomIdeas";
+import RoomScenes from "./sections/RoomScenes/RoomScenes";
 
 export default { 
     Countdown, 
@@ -24,6 +24,6 @@ export default {
     MoreToExplore,
     GetInspired,
     RichText,
-    RoomIdeasNavigation,
-    RoomIdea,
+    RoomIdeas,
+    RoomScenes,
 }
