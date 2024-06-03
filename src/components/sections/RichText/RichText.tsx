@@ -10,7 +10,8 @@ export interface RichTextProps {
 function RichText({ title, description, isMainDescription }: RichTextProps) {
 
   const [path, setPath] = useState<string | null>(null);
-  const [scene, isScene] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [scene, isScene] = useState<boolean>(true);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -20,21 +21,30 @@ function RichText({ title, description, isMainDescription }: RichTextProps) {
 
   useEffect(() => {
     if (!path || !path.includes('?scene')) {
+      setLoading(false);
       return;
     }
   
     isScene(true);
+    setLoading(false);
   }, [path]);
 
   return (
-    <section
-      className={styles.RichText}
-      data-fs-rich-text-main-description={isMainDescription}
-      data-fs-rich-text-scene={scene}
-    >
-      <p data-fs-rich-text-title>{title}</p>
-      <p data-fs-rich-text-description>{description}</p>
-    </section>
+    <>
+      {loading ? ( 
+        <div className={styles.loading}></div>
+      ) : (
+        !scene && (
+          <section
+            className={styles.RichText}
+            data-fs-rich-text-main-description={isMainDescription}
+          >
+            <p data-fs-rich-text-title>{title}</p>
+            <p data-fs-rich-text-description>{description}</p>
+          </section>
+        )
+      )}
+    </>
   );
 }
 
