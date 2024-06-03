@@ -73,8 +73,9 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            padding: 15px;
+            margin: 15px;
             text-decoration: none;
+            overflow: hidden;
 
             [data-fs-grid-item-btn] {
                 display: none;
@@ -89,6 +90,7 @@
                 align-items: center;
                 object-fit: cover;
                 object-position: center;
+                scale: 1.3;
             }
 
             &:hover {

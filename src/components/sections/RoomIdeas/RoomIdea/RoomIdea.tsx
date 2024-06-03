@@ -46,8 +46,14 @@ function RoomIdea({
     }
   }, []);
 
+  const getFirstWord = (input: string) => {
+    if (!input) return '';
+    const words = input.trim().split(' ');
+    return words[0].toLowerCase();
+  }
+
   const params = {
-    roomId: param ? param.toLowerCase() : ''
+    roomId: param ? getFirstWord(param) : ''
   }
 
   const GetRoomScenesInfo: any = useQuery(

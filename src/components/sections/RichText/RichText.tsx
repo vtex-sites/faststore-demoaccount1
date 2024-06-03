@@ -29,8 +29,6 @@ function RichText({ title, description, isMainDescription }: RichTextProps) {
     setLoading(false);
   }, [path]);
 
-  console.log('setLoading', loading, scene)
-
   return (
     <>
       {loading ? ( 
