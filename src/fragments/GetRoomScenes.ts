@@ -1,6 +1,6 @@
-import { gql } from '@generated/gql'
+import { gql } from '@generated'
 
-export const GetRoomScenes = gql`
+export const GetRoomScenes = gql(`
   query GetRoomScenes($roomId: String!) {
     GetRoomScenes(roomId: $roomId) {
       id
@@ -13,4 +13,4 @@ export const GetRoomScenes = gql`
       url
     }
   }
-`;
+`);

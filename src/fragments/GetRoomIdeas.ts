@@ -1,6 +1,6 @@
-import { gql } from '@generated/gql'
+import { gql } from '@generated'
 
-export const GetRoomIdeas = gql`
+export const GetRoomIdeas = gql(`
   query GetRoomIdeas($id: String!) {
     GetRoomIdeas(id: $id) {
       callToActionBtn {
@@ -23,4 +23,4 @@ export const GetRoomIdeas = gql`
       }
     }
   }
-`;
+`);
