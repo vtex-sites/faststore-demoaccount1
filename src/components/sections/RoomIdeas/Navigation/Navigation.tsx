@@ -1,24 +1,20 @@
 import React, { useState, useEffect } from "react";
 
 export interface NavigationProps {
-  data: [Item]
-  setParam: (value: any) => void
+  data: [Item];
+  setParam: (value: any) => void;
 }
 
 type Item = {
-  name: string
-  url: string
-}
+  name: string;
+  url: string;
+};
 
-function Navigation({
-  data,
-  setParam
-}: NavigationProps) {
-  
+function Navigation({ data, setParam }: NavigationProps) {
   const [path, setPath] = useState<string | null>(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       setPath(window.location.pathname);
     }
   }, []);
@@ -34,11 +30,19 @@ function Navigation({
 
   return (
     <ul data-fs-room-ideas-menu>
-      {data && data.map((menuItem: any, index: number) => (
-        <li key={index} data-fs-room-ideas-menu-item>
-          <a data-fs-menu-item-location={path ? path.includes(menuItem.url) : false} href={`/shop-by-room${menuItem.url}`}>{menuItem.name}</a>
-        </li>
-      ))}
+      {data &&
+        data.map((menuItem: any, index: number) => (
+          <li key={index} data-fs-room-ideas-menu-item>
+            <a
+              data-fs-menu-item-location={
+                path ? path.includes(menuItem.url) : false
+              }
+              href={`/shop-by-room${menuItem.url}`}
+            >
+              {menuItem.name}
+            </a>
+          </li>
+        ))}
     </ul>
   );
 }
