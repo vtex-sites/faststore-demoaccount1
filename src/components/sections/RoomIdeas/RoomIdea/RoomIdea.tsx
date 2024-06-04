@@ -106,7 +106,6 @@ function RoomIdea({
                 <a
                   key={index}
                   href={buildSceneUrl(path || "", sceneItem.url)}
-                  target="_blank"
                   data-fs-room-ideas-grid-item
                 >
                   <img
@@ -129,7 +128,6 @@ function RoomIdea({
               <a
                 key={index}
                 href={`/shop-by-room${gridItem.url}`}
-                target="_blank"
                 data-fs-room-ideas-grid-item
               >
                 <img
