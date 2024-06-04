@@ -36,7 +36,7 @@ function Navigation({
     <ul data-fs-room-ideas-menu>
       {data && data.map((menuItem: any, index: number) => (
         <li key={index} data-fs-room-ideas-menu-item>
-          <a data-fs-menu-item-location={path ? path.includes(menuItem.url) : false} href={`/shop-by-room${menuItem.url}`} target="_blank">{menuItem.name}</a>
+          <a data-fs-menu-item-location={path ? path.includes(menuItem.url) : false} href={`/shop-by-room${menuItem.url}`}>{menuItem.name}</a>
         </li>
       ))}
     </ul>

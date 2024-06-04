@@ -116,7 +116,7 @@ function RoomIdea({
           <div data-fs-room-ideas-grid-container>
             <div data-fs-room-ideas-grid-items>
               {sceneList && sceneList.map((sceneItem: any, index: number) => (
-                <a key={index} href={buildSceneUrl(path || '', sceneItem.url)} target="_blank" data-fs-room-ideas-grid-item>
+                <a key={index} href={buildSceneUrl(path || '', sceneItem.url)} data-fs-room-ideas-grid-item>
                   <img data-fs-grid-item-img data-fs-grid-scene data-fs-grid-idea='true' src={sceneItem.image} alt={sceneItem.alt} />
                   <Button data-fs-grid-item-btn>{callToActionBtn.text}</Button>
                 </a>
@@ -127,7 +127,7 @@ function RoomIdea({
         ) : (
           <div data-fs-room-ideas-grid-items>
             {data && data.map((gridItem: any, index: number) => (
-              <a key={index} href={`/shop-by-room${gridItem.url}`} target="_blank" data-fs-room-ideas-grid-item>
+              <a key={index} href={`/shop-by-room${gridItem.url}`} data-fs-room-ideas-grid-item>
                   <img data-fs-grid-item-img data-fs-grid-idea={gridItem.button ? true : false} src={gridItem.image} alt={gridItem.alt} />
                   <div data-fs-grid-item-title>{gridItem.name}</div>
               </a>
