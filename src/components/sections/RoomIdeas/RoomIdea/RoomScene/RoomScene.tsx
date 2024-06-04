@@ -1,55 +1,48 @@
-import React, { useEffect, useMemo, useState } from 'react'
-import fsconfig from 'faststore.config'
-import { useQuery } from 'src/sdk/graphql/useQuery'
-import { ClientManyProductsQueryDocument } from '@generated/graphql'
-import ProductCard from './ProductCard/ProductCard'
-import formatProducts from '../../../../../utils/formatProducts copy'
-import styles from './RoomIdea.module.scss'
+import React, { useMemo } from "react";
+import fsconfig from "faststore.config";
+import { useQuery } from "src/sdk/graphql/useQuery";
+import { ClientManyProductsQueryDocument } from "@generated/graphql";
+import ProductCard from "./ProductCard/ProductCard";
+import formatProducts from "../../../../../utils/formatProducts copy";
+import styles from "./RoomIdea.module.scss";
 
 export interface RoomSceneProps {
-  image: string
-  alt: string
-  collectionId: string
+  image: string;
+  alt: string;
+  collectionId: string;
 }
 
-function RoomScene({
-  collectionId,
-  alt,
-  image
-}: RoomSceneProps) {
-
-  const selectedFacets = [
-    {key: 'productClusterIds', value: collectionId}
-  ]
+function RoomScene({ collectionId, alt, image }: RoomSceneProps) {
+  const selectedFacets = [{ key: "productClusterIds", value: collectionId }];
 
   const queryVariables = {
     first: 10,
-    after: '0',
-    term: '',
-    sort: 'score_desc',
+    after: "0",
+    term: "",
+    sort: "score_desc",
     selectedFacets: selectedFacets
       ? [
           ...selectedFacets,
           {
-            key: 'channel',
+            key: "channel",
             value: fsconfig.session.channel,
           },
         ]
       : [],
-  }
+  };
 
-  const pds: any = useQuery(ClientManyProductsQueryDocument, queryVariables)
+  const pds: any = useQuery(ClientManyProductsQueryDocument, queryVariables);
 
   const productEdges = useMemo(() => {
     return (
       pds?.data?.search?.products?.edges?.map(
         (product: any) => product?.node
       ) || []
-    )
-  }, [pds])
+    );
+  }, [pds]);
 
   const products: any =
-    productEdges.length > 0 ? formatProducts(productEdges) : []
+    productEdges.length > 0 ? formatProducts(productEdges) : [];
 
   return (
     <div className={styles.RoomIdea}>
@@ -73,7 +66,7 @@ function RoomScene({
         )}
       </div>
     </div>
-  )
+  );
 }
 
-export default RoomScene
+export default RoomScene;

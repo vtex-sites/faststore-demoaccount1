@@ -1,33 +1,27 @@
 import React from "react";
+import replaceParam from "../../../../../utils/replaceParam";
 
 export interface GoBackButtonProps {
-  returnBtn: {
-    text: string;
-    url: string;
-    newWindow: boolean;
-  };
   param?: string;
   url?: string;
 }
 
-function GoBackButton({
-  returnBtn,
-  param,
-  url
-}: GoBackButtonProps) {
-
-  const replaceParam = (text: string, param: string | undefined) => {
-    return param ? text.replace("{PARAM}", param.toUpperCase()) : text;
+function GoBackButton({ param, url }: GoBackButtonProps) {
+  const returnBtn = {
+    text: "< BACK TO {PARAM} INSPIRATION",
+    url: "/shop-by-room",
+    newWindow: true,
   };
 
-  const buttonText = replaceParam(returnBtn.text, param)
-  
   return (
     <>
-      {param &&
-      <div data-fs-room-idea-return>
-        <a data-fs-room-idea-return-link href={url ? url : returnBtn.url}>{buttonText}</a>
-      </div>}
+      {param && (
+        <div data-fs-room-idea-return>
+          <a data-fs-room-idea-return-link href={url ? url : returnBtn.url}>
+            {replaceParam(returnBtn.text, param)}
+          </a>
+        </div>
+      )}
     </>
   );
 }

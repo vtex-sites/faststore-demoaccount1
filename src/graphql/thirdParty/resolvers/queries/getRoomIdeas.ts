@@ -1,6 +1,6 @@
 const baseUrl = `https://demoaccount1.myvtex.com/_v/room-ideas-manager/getRoomIdeas`
 
-export const GetRoomIdeas = async (_: any, { id }: any) => {
+export const GetRoomIdeas = async (_: any) => {
 
     try {
     const response = await fetch(
@@ -16,29 +16,11 @@ export const GetRoomIdeas = async (_: any, { id }: any) => {
     const roomIdeas = await response.json()
 
     return {
-        callToActionBtn: {
-            text: "SHOP NOW",
-            newWindow: true
-        },
-        returnBtn: {
-            text: "< BACK TO {PARAM} INSPIRATION",
-            url: "/shop-by-room",
-            newWindow: true,
-        },
         roomIdeas
     }
 
     } catch (error) {
         return {
-            callToActionBtn: {
-                text: '',
-                newWindow: false
-            },
-            returnBtn: {
-                text: '',
-                url: '',
-                newWindow: false,
-            },
             roomIdeas: [{
                 id: '',
                 ID: '',

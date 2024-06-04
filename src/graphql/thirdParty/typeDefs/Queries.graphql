@@ -1,23 +1,10 @@
 type Query {
-  GetRoomIdeas(id: String!): RoomIdeas
+  GetRoomIdeas: RoomIdeas
   GetRoomScenes(roomId: String!): [RoomScene]
 }
 
 type RoomIdeas {
-  callToActionBtn: CallToActionBtn!
-  returnBtn: ReturnBtn!
   roomIdeas: [RoomIdea]
-}
-
-type CallToActionBtn {
-  text: String!
-  newWindow: Boolean!
-}
-
-type ReturnBtn {
-  text: String!
-  url: String!
-  newWindow: Boolean!
 }
 
 type RoomIdea {
