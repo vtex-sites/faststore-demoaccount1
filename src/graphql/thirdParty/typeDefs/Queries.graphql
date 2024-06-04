@@ -8,22 +8,16 @@ type RoomIdeas {
 }
 
 type RoomIdea {
-  id: String!
-  ID: String!
   image: String!
   alt: String!
   name: String!
-  order: String!
   url: String!
 }
 
 type RoomScene {
-  id: String!
-  ID: String!
   image: String!
   alt: String!
   collectionId: String!
   roomId: String!
-  order: String!
   url: String!
 }

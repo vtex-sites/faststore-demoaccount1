@@ -1,10 +1,23 @@
-const baseUrl = `https://demoaccount1.myvtex.com/_v/room-ideas-manager/getRoomIdeas`
+import storeConfig from 'faststore.config'
+
+type RoomIdeaResponse = {
+    id: string
+    ID: string
+    image: string
+    alt: string
+    name: string
+    order: string
+    url: string
+}
 
 export const GetRoomIdeas = async (_: any) => {
 
+    const { storeId, environment } = storeConfig.api
+    const baseUrl = `https://${storeId}.${environment}.com.br/api/io`
+
     try {
     const response = await fetch(
-        `${baseUrl}`
+        `${baseUrl}/_v/room-ideas-manager/getRoomIdeas`
     )
 
     if (!response.ok) {
@@ -13,21 +26,25 @@ export const GetRoomIdeas = async (_: any) => {
         )
     }
 
-    const roomIdeas = await response.json()
+    const roomIdeasResponse = await response.json()
+
+    const roomIdeasInfo = roomIdeasResponse.map((roomIdea: RoomIdeaResponse) => ({
+        name: roomIdea.name,
+        image: roomIdea.image,
+        alt: roomIdea.alt,
+        url: roomIdea.url
+    }))
 
     return {
-        roomIdeas
+        roomIdeasInfo
     }
 
     } catch (error) {
         return {
             roomIdeas: [{
-                id: '',
-                ID: '',
                 image: '',
                 alt: '',
                 name: '',
-                order: '',
                 url: ''
             }]
         }
