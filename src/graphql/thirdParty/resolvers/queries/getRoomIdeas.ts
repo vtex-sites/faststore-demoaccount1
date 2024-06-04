@@ -10,7 +10,11 @@ type RoomIdeaResponse = {
     url: string
 }
 
-export const GetRoomIdeas = async (_: any) => {
+type args = {
+    id: string
+}
+
+export const GetRoomIdeas = async (_: any, { id }: args) => {
 
     const { storeId, environment } = storeConfig.api
     const baseUrl = `https://${storeId}.${environment}.com.br/api/io`

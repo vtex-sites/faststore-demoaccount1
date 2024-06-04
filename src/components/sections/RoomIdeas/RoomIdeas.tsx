@@ -11,8 +11,12 @@ function RoomIdeas() {
   const [roomIdeas, setRoomIdeas] = useState<any>("");
   const [selectedScene, setSelectedScene] = useState<any>("");
 
+  const params = {
+    id: "allow",
+  };
+
   // We request all the roomIdeas information
-  const GetRoomIdeasInfo: any = useQuery(GetRoomIdeas, {});
+  const GetRoomIdeasInfo: any = useQuery(GetRoomIdeas, params);
 
   useEffect(() => {
     if (!GetRoomIdeasInfo) {

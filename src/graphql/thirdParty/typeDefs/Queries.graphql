@@ -1,5 +1,5 @@
 type Query {
-  GetRoomIdeas: RoomIdeas
+  GetRoomIdeas(id: String!): RoomIdeas
   GetRoomScenes(roomId: String!): [RoomScene]
 }
 

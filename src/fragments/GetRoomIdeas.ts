@@ -1,8 +1,8 @@
 import { gql } from '@generated'
 
 export const GetRoomIdeas = gql(`
-  query GetRoomIdeas {
-    GetRoomIdeas {
+  query GetRoomIdeas($id: String!) {
+    GetRoomIdeas(id: $id) {
       roomIdeas {
         image
         alt
