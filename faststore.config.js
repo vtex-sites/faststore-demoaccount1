@@ -1,10 +1,10 @@
 
 module.exports = {
   seo: {
-  "title": "Lamps Plus",
-  "description": "Lamps  Website",
-  "titleTemplate": "%s |  Lamps Plus",
-  "author": "Lamps Plus"
+  "title": "Lighting Demo Store",
+  "description": "Lighting Demo Store",
+  "titleTemplate": "%s |  Lighting Demo Store",
+  "author": "Lighting Demo Store"
 },
 
   // Theming
