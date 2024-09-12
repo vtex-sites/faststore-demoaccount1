@@ -26,6 +26,8 @@ const categoriesList = [
 
 function CategoriesOffers() {
 
+  // logics here
+
   return (
     <div className={styles.containerCategoriesOffers}>
       <ul className={styles.containerContentCategoriesOffers}>
