@@ -6,7 +6,7 @@ module.exports = {
   "titleTemplate": "%s |  Lighting Demo Store",
   "author": "Lighting Demo Store"
 },
-//build trigger
+//build trigger 1
   // Theming
   theme: 'custom-theme',
 
